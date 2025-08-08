@@ -24,45 +24,65 @@
     
     ">Scissors</button>
 
+  <button onclick ="
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+  "> Reset Score</button>
+
+  
 
 
 <script>
 
-
+  const score = {
+    wins: 0,
+    losses: 0,
+    ties : 0
+  };
   function playGame(playerMove){
         const computerMove =  pickComputerMove();
       
         let Result = '';  
-        if(playerMove === 'scissors'){
+        if(playerMove === 'Scissors'){
 
           if(computerMove==='Rock'){
-            Result = ' You Lose';
+            Result = 'You Lose';
           } else if (computerMove==='Paper'){
-            Result = ' You Win';
+            Result = 'You Win';
           } else if (computerMove==='Scissors'){
-            Result = ' Tie';
+            Result = 'Tie';
           }
           
-        }else if(playerMove === 'paper'){
+        }else if(playerMove === 'Paper'){
           if(computerMove==='Rock'){
             Result = 'You Win';
           } else if (computerMove==='Paper'){
-            Result = ' Tie';
+            Result = 'Tie';
           } else if (computerMove==='Scissors'){
-            Result = ' You Lose';
+            Result = 'You Lose';
           }
 
         }else if(playerMove === 'Rock'){
           if(computerMove==='Rock'){
           Result = 'Tie';
           } else if (computerMove==='Paper'){
-          Result = ' You Lose';
+          Result = 'You Lose';
           } else if (computerMove==='Scissors'){
-          Result = ' You Win';
+          Result = 'You Win';
         }
+        }
+        if(Result ==='You Win'){
+          score.wins += 1;
+        }else if(Result === 'You Lose'){
+          score.losses += 1;
+        }else if(Result === 'Tie'){
+          score.ties += 1;
         }
 
-        alert(`You picked ${playerMove}. Computer picked ${computerMove} . ${Result}`);
+
+        alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${Result}
+Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
 
   }
 
